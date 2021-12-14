@@ -1,0 +1,6 @@
+<ng-container *ngIf="user">
+  <div>Пользователь: {{user.firstName}} {{user.lastName}}</div>
+  <div>Возраст: {{user.age}}</div>
+
+  <div class="delete-btn" (click)="removeUser()"></div>
+</ng-container>

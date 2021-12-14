@@ -1,0 +1,10 @@
+<ng-container *ngIf="{
+  users: users$ | async
+} as $">
+  <div class="users-list">
+    <app-user-card *ngFor="let user of $.users; let index = index"
+                   [user]="user"
+                   [index]="index"
+    ></app-user-card>
+  </div>
+</ng-container>

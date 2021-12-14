@@ -1,0 +1,41 @@
+:host {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.delete-btn {
+  $btn-size: 12px;
+
+  position: absolute;
+  top: $btn-size;
+  right: $btn-size;
+  width: $btn-size;
+  height: $btn-size;
+  opacity: 0.3;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:before, &:after {
+    content: ' ';
+    position: absolute;
+    left: $btn-size / 2;
+    width: 2px;
+    height: $btn-size;
+    background-color: #333;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+}

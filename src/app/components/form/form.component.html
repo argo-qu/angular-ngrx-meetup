@@ -1,0 +1,11 @@
+<form [formGroup]="form" (submit)="addNewUser()">
+  <h4>Форма добавления пользователей</h4>
+
+  <label for="firstName">Имя</label>
+  <input id="firstName" type="text" formControlName="firstName">
+  <label for="lastName">Фамилия</label>
+  <input id="lastName" type="text" formControlName="lastName">
+  <label for="age">Возраст</label>
+  <input id="age" type="number" formControlName="age" min="0">
+  <button>Сохранить</button>
+</form>
