@@ -9,7 +9,7 @@ import {setEffectsState} from '../../store/actions';
 @Component({
   selector: 'app-demo-options-form',
   templateUrl: './demo-options-form.component.html',
-  styleUrls: ['./demo-options-form.component.scss']
+  styleUrls: ['./demo-options-form.component.scss'],
 })
 export class DemoOptionsFormComponent implements OnDestroy {
 
@@ -17,29 +17,26 @@ export class DemoOptionsFormComponent implements OnDestroy {
   destroy$ = new Subject();
 
   form: FormGroup = this.fb.group({
-    enableEffects: []
+    enableEffects: [],
   });
 
   constructor(
     private fb: FormBuilder,
-    private store: Store<AppState>
+    private store: Store<AppState>,
   ) {
     this.updateFormOnEffectsStateChange();
-    this.dispatchUpdatesOnFormValueChange();
   }
 
   updateFormOnEffectsStateChange(): void {
     this.enableEffects$.pipe(
       takeUntil(this.destroy$),
-      tap((enableEffects: boolean) => this.form.get('enableEffects')?.setValue(enableEffects))
+      tap((enableEffects: boolean) => this.form.get('enableEffects')?.setValue(enableEffects)),
     ).subscribe();
   }
 
-  dispatchUpdatesOnFormValueChange(): void {
-    this.form.valueChanges.pipe(
-      takeUntil(this.destroy$),
-      tap(({enableEffects}) => this.store.dispatch(setEffectsState({enableEffects})))
-    ).subscribe()
+  apply(): void {
+    const {enableEffects} = this.form.value;
+    this.store.dispatch(setEffectsState({enableEffects}))
   }
 
   ngOnDestroy(): void {
