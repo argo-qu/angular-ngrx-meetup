@@ -1,10 +1,15 @@
 import {createSelector} from '@ngrx/store';
-import {State} from '../state';
+import {AppState} from '../state';
 import {UsersState} from '../state/users.state';
 
-export const boilerplateFeatureSelector = (state: State) => state.users;
+export const usersFeatureSelector = (state: AppState) => state.users;
 
-export const usersListSelector = createSelector(
-  boilerplateFeatureSelector,
+export const selectUsersList = createSelector(
+  usersFeatureSelector,
   (state: UsersState) => state.users
+);
+
+export const selectIsLoading = createSelector(
+  usersFeatureSelector,
+  (state: UsersState) => state.isLoading
 );

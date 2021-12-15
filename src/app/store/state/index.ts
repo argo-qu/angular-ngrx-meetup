@@ -1,5 +1,7 @@
 import {UsersState} from './users.state';
+import {DemoOptionsState} from './demo-options.state';
 
-export interface State {
-  users: UsersState
+export interface AppState {
+  users: UsersState,
+  demoOptions: DemoOptionsState
 }

@@ -1,10 +1,13 @@
 <ng-container *ngIf="{
   users: users$ | async
 } as $">
-  <div class="users-list">
+  <div class="users-list" *ngIf="$.users?.length; else noUsersMsg">
     <app-user-card *ngFor="let user of $.users; let index = index"
                    [user]="user"
                    [index]="index"
     ></app-user-card>
   </div>
+  <ng-template #noUsersMsg>
+    <div>Пока пользователей в списке нет</div>
+  </ng-template>
 </ng-container>

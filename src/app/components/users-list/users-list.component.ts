@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {usersListSelector} from '../../store/selectors';
-import {State} from '../../store/state';
+import {selectUsersList} from '../../store/selectors';
+import {AppState} from '../../store/state';
 
 @Component({
   selector: 'app-users-list',
@@ -10,9 +10,9 @@ import {State} from '../../store/state';
 })
 export class UsersListComponent {
 
-  users$ = this.store.select(usersListSelector);
+  users$ = this.store.select(selectUsersList);
 
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<AppState>) {
   }
 
 }

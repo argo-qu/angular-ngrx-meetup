@@ -1,6 +1,19 @@
-:host {
+.users-page {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 30px;
-  padding: 15px;
+}
+
+.state,
+.demo-controls,
+.users-form,
+.users {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.state,
+.demo-controls,
+.users-page {
+  margin-bottom: 20px;
 }

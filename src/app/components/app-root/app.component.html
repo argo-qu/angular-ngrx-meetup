@@ -1,5 +1,19 @@
-<app-form></app-form>
-<div>
-  <app-users-count></app-users-count>
-  <app-users-list></app-users-list>
-</div>
+<ng-container *ngIf="{ state: state$ | async,  isLoading: isLoading$ | async } as $">
+  <div class="demo-controls">
+    <app-demo-options-form></app-demo-options-form>
+  </div>
+
+  <div class="users-page">
+    <app-form class="users-form"></app-form>
+    <div class="users">
+      <app-users-count></app-users-count>
+      <app-users-list></app-users-list>
+    </div>
+  </div>
+
+  <div class="state">
+    <pre>{{ $.state }}</pre>
+  </div>
+
+  <app-loader *ngIf="$.isLoading"></app-loader>
+</ng-container>

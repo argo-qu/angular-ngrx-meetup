@@ -3,11 +3,12 @@
 }
 
 form {
-  border: 1px solid black;
-  padding: 0 20px 20px;
-
   display: grid;
   width: 100%;
+
+  h4 {
+    margin-top: 0;
+  }
 
   input {
     margin-bottom: 20px;
