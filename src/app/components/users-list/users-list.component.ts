@@ -9,10 +9,8 @@ import {AppState} from '../../store/state';
   styleUrls: ['./users-list.component.scss']
 })
 export class UsersListComponent {
-
   users$ = this.store.select(selectUsersList);
 
   constructor(private store: Store<AppState>) {
   }
-
 }
