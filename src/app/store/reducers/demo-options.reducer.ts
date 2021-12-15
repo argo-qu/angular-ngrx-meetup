@@ -1,10 +1,10 @@
 import {createReducer, on} from '@ngrx/store';
-import {initialState} from '../initial-state';
 import {DemoOptionsState} from '../state/demo-options.state';
 import {setEffectsState} from '../actions';
+import {demoOptionsInitialState} from '../initial-state';
 
 export const demoOptionsReducer = createReducer<DemoOptionsState>(
-  initialState.demoOptions,
+  demoOptionsInitialState,
   on(setEffectsState, (state, {enableEffects}) => ({
     ...state,
     enableEffects

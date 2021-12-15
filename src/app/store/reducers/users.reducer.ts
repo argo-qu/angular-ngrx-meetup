@@ -1,18 +1,20 @@
 import {createReducer, on} from '@ngrx/store';
-import {initialState} from '../initial-state';
 import {
   addNewUser,
   addNewUserByApi,
   addNewUserByApiFailure,
   addNewUserByApiSuccess,
   removeUser,
-  removeUserByApi, removeUserByApiFailure, removeUserByApiSuccess,
+  removeUserByApi,
+  removeUserByApiFailure,
+  removeUserByApiSuccess,
 } from '../actions';
 import {UsersState} from '../state/users.state';
 import {removeArrayElement} from '../../utils/remove-array-element.util';
+import {usersInitialState} from '../initial-state';
 
 export const usersReducer = createReducer<UsersState>(
-  initialState.users,
+  usersInitialState,
 
   // Простое добавление
   on(addNewUser, (state: UsersState, {user}) => ({
